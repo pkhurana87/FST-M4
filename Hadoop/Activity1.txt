@@ -1,0 +1,11 @@
+root@90f05189a960:/# vi txtFile.txt
+root@90f05189a960:/# vi csvFild.csv
+root@90f05189a960:/# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /file
+stat: `/file': No such file or directory
+root@90f05189a960:/# hdfs dfs -mkdir /user/root/textData
+root@90f05189a960:/# hdfs dfs -put ./csvFild.csv /user/root/textData
+root@90f05189a960:/# hdfs dfs -put ./txtFile.txt /user/root/textData
+root@90f05189a960:/# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/root/textData/csvFild.csv
+type:regular file permissions:644 root:supergroup size:526 name:csvFild.csv
+root@90f05189a960:/# hdfs dfs -stat "type:%F permissions:%a %u:%g size:%b name:%n" /user/root/textData/txtFile.txt
+type:regular file permissions:644 root:supergroup size:157 name:txtFile.txt
